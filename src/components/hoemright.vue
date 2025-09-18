@@ -218,7 +218,7 @@ export default {
 	  async loadBlogIndex(){
 		this.blogLoading = true;
 		try{
-			const res = await fetch('/blog/index.json', { cache: 'no-cache' });
+			const res = await fetch('blog/index.json', { cache: 'no-cache' });
 			if(res.ok){
 				this.blogIndex = await res.json();
 			}else{
@@ -235,7 +235,7 @@ export default {
 		this.postLoading = true;
 		this.currentPost = null;
 		try{
-			const res = await fetch(`/blog/${slug}.json`, { cache: 'no-cache' });
+			const res = await fetch(`blog/${slug}.json`, { cache: 'no-cache' });
 			if(res.ok){
 				this.currentPost = await res.json();
 			}
