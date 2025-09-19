@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文章</title>
+  <style>
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";margin:20px;}
+    a{color:#2563eb;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .meta{color:#6b7280;font-size:12px;margin-bottom:10px}
+    .content{line-height:1.8}
+  </style>
+</head>
+<body>
+  <a href="index.html">← 返回列表</a>
+  <h1 id="title">加载中…</h1>
+  <div id="meta" class="meta"></div>
+  <div id="content" class="content">请稍候…</div>
+  <script>
+    function getSlug(){
+      const u = new URL(location.href);
+      return u.searchParams.get('slug');
+    }
+    function fmtDate(iso){
+      try{ return new Date(iso).toLocaleString(); }catch{ return iso; }
+    }
+    async function main(){
+      const slug = getSlug();
+      const titleEl = document.getElementById('title');
+      const metaEl = document.getElementById('meta');
+      const contentEl = document.getElementById('content');
+      if(!slug){ titleEl.textContent='缺少 slug'; return; }
+      try{
+        const res = await fetch(`${encodeURIComponent(slug)}.json`,{cache:'no-cache'});
+        if(!res.ok){ titleEl.textContent='未找到文章'; contentEl.textContent=''; return; }
+        const data = await res.json();
+        titleEl.textContent = data.title || slug;
+        metaEl.textContent = `${fmtDate(data.date)}${data.tags && data.tags.length? ' · '+data.tags.join(', ') : ''}`;
+        contentEl.innerHTML = data.html || '';
+      }catch(e){
+        titleEl.textContent = '加载失败';
+        contentEl.textContent = '';
+      }
+    }
+    main();
+  </script>
+</body>
+</html>

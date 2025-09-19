@@ -162,7 +162,7 @@
             </v-card>
           </v-dialog>
           
-        </div
+        </div>
       </div>
 </template> 
 
