@@ -60,6 +60,7 @@ async function build() {
 		const title = attributes.title || slug;
 		const dateIso = attributes.date || stat.mtime.toISOString();
 		const tags = Array.isArray(attributes.tags) ? attributes.tags : (attributes.tags ? String(attributes.tags).split(',').map(s=>s.trim()).filter(Boolean) : []);
+		const category = attributes.category || 'others';
 		const summary = attributes.summary || text.slice(0, 160);
 
 		const postData = {
@@ -67,13 +68,14 @@ async function build() {
 			title,
 			date: dateIso,
 			tags,
+			category,
 			summary,
 			html,
 		};
 
 		await fs.writeFile(path.join(outDir, `${slug}.json`), JSON.stringify(postData, null, 2), 'utf-8');
 
-		index.push({ slug, title, date: dateIso, tags, summary });
+		index.push({ slug, title, date: dateIso, tags, category, summary });
 	}
 
 	// sort by date desc

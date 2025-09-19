@@ -13,31 +13,107 @@
   </style>
 </head>
 <body>
-  <h1>博客文章</h1>
+  <div style="display: flex; align-items: center; margin-bottom: 20px;">
+    <a href="../" style="margin-right: 20px; padding: 8px 16px; background: #f0f0f0; border-radius: 4px; text-decoration: none; color: #333;">← 返回主页</a>
+    <h1 style="margin: 0;">博客文章</h1>
+  </div>
+  
+  <div style="margin-bottom: 20px;">
+    <label for="categoryFilter" style="margin-right: 10px;">分类筛选：</label>
+    <select id="categoryFilter" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">
+      <option value="">全部分类</option>
+      <option value="tech">技术分享</option>
+      <option value="study">学习笔记</option>
+      <option value="life">生活感悟</option>
+      <option value="project">项目经验</option>
+      <option value="tools">工具推荐</option>
+      <option value="books">读书笔记</option>
+      <option value="design">设计思考</option>
+      <option value="others">其他文章</option>
+    </select>
+  </div>
+  
   <div id="list">加载中…</div>
   <script>
+    let allPosts = [];
+    
+    function getCategoryFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('category') || '';
+    }
+    
+    function filterPosts(category) {
+      const filtered = category ? allPosts.filter(p => p.category === category) : allPosts;
+      renderPosts(filtered);
+    }
+    
+    function renderPosts(posts) {
+      const wrap = document.getElementById('list');
+      if(!Array.isArray(posts) || posts.length===0){ 
+        wrap.textContent='暂无文章'; 
+        return; 
+      }
+      wrap.innerHTML = '';
+      for(const p of posts){
+        const div = document.createElement('div');
+        div.className = 'item';
+        const a = document.createElement('a');
+        a.href = `post.html?slug=${encodeURIComponent(p.slug)}`;
+        a.textContent = p.title;
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        const date = new Date(p.date).toLocaleString();
+        const categoryText = getCategoryText(p.category);
+        meta.textContent = `${date} · ${categoryText}${p.tags && p.tags.length? ' · '+p.tags.join(', ') : ''} · ${p.summary||''}`;
+        div.appendChild(a);
+        div.appendChild(meta);
+        wrap.appendChild(div);
+      }
+    }
+    
+    function getCategoryText(category) {
+      const categoryMap = {
+        'tech': '技术分享',
+        'study': '学习笔记', 
+        'life': '生活感悟',
+        'project': '项目经验',
+        'tools': '工具推荐',
+        'books': '读书笔记',
+        'design': '设计思考',
+        'others': '其他文章'
+      };
+      return categoryMap[category] || '其他文章';
+    }
+    
     async function main(){
       const wrap = document.getElementById('list');
       try{
         const res = await fetch('index.json',{cache:'no-cache'});
         if(!res.ok){ wrap.textContent='暂无文章'; return; }
-        const data = await res.json();
-        if(!Array.isArray(data) || data.length===0){ wrap.textContent='暂无文章'; return; }
-        wrap.innerHTML = '';
-        for(const p of data){
-          const div = document.createElement('div');
-          div.className = 'item';
-          const a = document.createElement('a');
-          a.href = `post.html?slug=${encodeURIComponent(p.slug)}`;
-          a.textContent = p.title;
-          const meta = document.createElement('div');
-          meta.className = 'meta';
-          const date = new Date(p.date).toLocaleString();
-          meta.textContent = `${date}${p.tags && p.tags.length? ' · '+p.tags.join(', ') : ''} · ${p.summary||''}`;
-          div.appendChild(a);
-          div.appendChild(meta);
-          wrap.appendChild(div);
-        }
+        allPosts = await res.json();
+        if(!Array.isArray(allPosts) || allPosts.length===0){ wrap.textContent='暂无文章'; return; }
+        
+        // 设置分类筛选器
+        const categoryFilter = document.getElementById('categoryFilter');
+        const currentCategory = getCategoryFromUrl();
+        categoryFilter.value = currentCategory;
+        
+        // 筛选文章
+        filterPosts(currentCategory);
+        
+        // 监听筛选器变化
+        categoryFilter.addEventListener('change', (e) => {
+          const newCategory = e.target.value;
+          const url = new URL(window.location);
+          if(newCategory) {
+            url.searchParams.set('category', newCategory);
+          } else {
+            url.searchParams.delete('category');
+          }
+          window.history.pushState({}, '', url);
+          filterPosts(newCategory);
+        });
+        
       }catch(e){
         wrap.textContent = '加载失败';
       }

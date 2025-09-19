@@ -138,14 +138,14 @@ const config = {
 
 	//项目卡片 其中 字段"show"控制初始卡片的text是否展开
 	projectcards: [
-		{ go: "🚀 前往", img: "/img/sunshine.jpg", title: "Blog", subtitle: "写作与记录", text: "点击进入博客列表页面。", url: "blog/index.html", show: false },
-		{ go: "🗂️ 前往", img: "/img/sunshine.jpg", title: "Project 2", subtitle: "2,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "📝 前往", img: "/img/sunshine.jpg", title: "Project 3", subtitle: "3,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "👍 前往", img: "/img/sunshine.jpg", title: "Project 4", subtitle: "4,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "🗃 前往", img: "/img/sunshine.jpg", title: "Project 5", subtitle: "5,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "🎨 前往", img: "/img/sunshine.jpg", title: "Project 6", subtitle: "6,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "💍 前往", img: "/img/sunshine.jpg", title: "Project 7", subtitle: "7,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
-		{ go: "🔍 前往", img: "/img/sunshine.jpg", title: "Project 8", subtitle: "8,000 miles of wonder", text: "If you see this line, I've managed to get your attention.", url: "https://leleo.top", show: false },
+		{ go: "🚀 前往", img: "/img/sunshine.jpg", title: "技术分享", subtitle: "编程与开发", text: "分享编程经验、技术教程和开发心得。", url: "blog/index.html?category=tech", show: false },
+		{ go: "📚 前往", img: "/img/sunshine.jpg", title: "学习笔记", subtitle: "知识总结", text: "记录学习过程中的重要知识点和心得体会。", url: "blog/index.html?category=study", show: false },
+		{ go: "💡 前往", img: "/img/sunshine.jpg", title: "生活感悟", subtitle: "日常思考", text: "分享生活中的点滴感悟和人生思考。", url: "blog/index.html?category=life", show: false },
+		{ go: "🎯 前往", img: "/img/sunshine.jpg", title: "项目经验", subtitle: "实战总结", text: "记录项目开发过程中的经验和教训。", url: "blog/index.html?category=project", show: false },
+		{ go: "🔧 前往", img: "/img/sunshine.jpg", title: "工具推荐", subtitle: "效率提升", text: "推荐好用的工具和软件，提升工作效率。", url: "blog/index.html?category=tools", show: false },
+		{ go: "📖 前往", img: "/img/sunshine.jpg", title: "读书笔记", subtitle: "阅读分享", text: "分享读书心得和好书推荐。", url: "blog/index.html?category=books", show: false },
+		{ go: "🎨 前往", img: "/img/sunshine.jpg", title: "设计思考", subtitle: "创意灵感", text: "分享设计理念和创意想法。", url: "blog/index.html?category=design", show: false },
+		{ go: "🌟 前往", img: "/img/sunshine.jpg", title: "其他文章", subtitle: "杂谈随笔", text: "其他类型的文章和随想。", url: "blog/index.html?category=others", show: false },
 	],
 
 	statement: ["备案号：XXICP备123456789号", "Copyright © 2025 Leleo"],
