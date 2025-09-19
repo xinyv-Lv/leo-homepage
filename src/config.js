@@ -138,10 +138,10 @@ const config = {
 
 	//项目卡片 其中 字段"show"控制初始卡片的text是否展开
 	projectcards: [
-		{ go: "🚀 前往", img: "/img/sunshine.jpg", title: "技术分享", subtitle: "编程与开发", text: "分享编程经验、技术教程和开发心得。", url: "blog/index.html?category=tech", show: false },
-		{ go: "📚 前往", img: "/img/sunshine.jpg", title: "学习笔记", subtitle: "知识总结", text: "记录学习过程中的重要知识点和心得体会。", url: "blog/index.html?category=study", show: false },
-		{ go: "💡 前往", img: "/img/sunshine.jpg", title: "生活感悟", subtitle: "日常思考", text: "分享生活中的点滴感悟和人生思考。", url: "blog/index.html?category=life", show: false },
-		{ go: "🎯 前往", img: "/img/sunshine.jpg", title: "项目经验", subtitle: "实战总结", text: "记录项目开发过程中的经验和教训。", url: "blog/index.html?category=project", show: false },
+		{ go: "🚀 前往", img: "/img/sunshine.jpg", title: "LLM", subtitle: "大语言模型", text: "分享大语言模型相关的研究、应用和思考。", url: "blog/index.html?category=llm", show: false },
+		{ go: "👁️ 前往", img: "/img/sunshine.jpg", title: "CV", subtitle: "计算机视觉", text: "记录计算机视觉领域的学习笔记和项目经验。", url: "blog/index.html?category=cv", show: false },
+		{ go: "📚 前往", img: "/img/sunshine.jpg", title: "Study", subtitle: "学习笔记", text: "记录学习过程中的重要知识点和心得体会。", url: "blog/index.html?category=study", show: false },
+		{ go: "🎯 前往", img: "/img/sunshine.jpg", title: "Project", subtitle: "项目经验", text: "记录项目开发过程中的经验和教训。", url: "blog/index.html?category=project", show: false },
 		{ go: "🔧 前往", img: "/img/sunshine.jpg", title: "工具推荐", subtitle: "效率提升", text: "推荐好用的工具和软件，提升工作效率。", url: "blog/index.html?category=tools", show: false },
 		{ go: "📖 前往", img: "/img/sunshine.jpg", title: "读书笔记", subtitle: "阅读分享", text: "分享读书心得和好书推荐。", url: "blog/index.html?category=books", show: false },
 		{ go: "🎨 前往", img: "/img/sunshine.jpg", title: "设计思考", subtitle: "创意灵感", text: "分享设计理念和创意想法。", url: "blog/index.html?category=design", show: false },

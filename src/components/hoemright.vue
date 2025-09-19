@@ -91,8 +91,7 @@
                   </v-card-subtitle>
 
                   <v-card-actions :style="xs||sm||md?{'padding': '0','min-height': '0','height':'2.5rem'}:{'min-height': '0','height':'2.8rem'}">
-                    <v-btn :href="item.url"
-                    target="_blank"
+                    <v-btn @click="navigateToBlog(item.url)"
                       :text= "item.go"
                     ></v-btn>
                     <v-spacer></v-spacer>
@@ -114,53 +113,6 @@
             </v-row>
           </v-container>
           
-          <!-- Blog section -->
-          <v-chip class="mt-6 ml-3" prepend-icon="mdi-notebook-edit" size="large" style="color: var(--leleo-vcard-color);">
-            博客文章
-          </v-chip>
-          <v-container>
-            <v-row>
-              <v-col cols="12" md="8">
-                <v-list class="v-card" lines="two" density="comfortable">
-                  <v-list-item
-                    v-for="post in blogIndex"
-                    :key="post.slug"
-                    @click="openPost(post.slug)"
-                    :title="post.title"
-                    :subtitle="formatPostSubtitle(post)"
-                  >
-                    <template v-slot:prepend>
-                      <v-icon color="var(--leleo-vcard-color)">mdi-note-text</v-icon>
-                    </template>
-                  </v-list-item>
-                  <v-list-item v-if="!blogLoading && blogIndex.length===0" title="暂无文章" subtitle="请在 posts/ 放入 .md 后构建"></v-list-item>
-                  <div v-if="blogLoading" class="ma-3" align="center">
-                    <v-progress-circular indeterminate></v-progress-circular>
-                  </div>
-                </v-list>
-              </v-col>
-            </v-row>
-          </v-container>
-
-          <v-dialog v-model="postDialog" width="900">
-            <v-card class="ma-2 pa-2" variant="tonal" rounded="lg" style="backdrop-filter: blur(10px);">
-              <template v-slot:title>
-                <span class="leleo-card-title">{{ currentPost?.title || '加载中...' }}</span>
-              </template>
-              <v-card-subtitle>{{ currentPost ? formatDate(currentPost.date) : '' }}</v-card-subtitle>
-              <v-divider></v-divider>
-              <v-card-text style="max-height: 70vh; overflow:auto;">
-                <div v-if="postLoading" align="center" class="ma-6">
-                  <v-progress-circular indeterminate></v-progress-circular>
-                </div>
-                <div v-else v-html="currentPost?.html"></div>
-              </v-card-text>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn variant="tonal" color="var(--leleo-vcard-color)" @click="postDialog=false">关闭</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
           
         </div>
       </div>
@@ -187,11 +139,6 @@ export default {
 				{ title: 'Yandex', value: 'yandex' },
 				{ title: 'DuckDuckGo', value: 'duckduckgo' },
 			],
-			blogIndex: [],
-			blogLoading: false,
-			postDialog: false,
-			currentPost: null,
-			postLoading: false,
 		}
 	},
     setup() {
@@ -204,9 +151,6 @@ export default {
   			return this.isLikelyUrl(str);
 		}
 	},
-	mounted(){
-		this.loadBlogIndex();
-	},
     methods:{
       projectcardsShow(key){
         for(let i = 0;i < this.projectcards.length;i++){
@@ -215,42 +159,9 @@ export default {
           }
         }
       },
-	  async loadBlogIndex(){
-		this.blogLoading = true;
-		try{
-			const res = await fetch('blog/index.json', { cache: 'no-cache' });
-			if(res.ok){
-				this.blogIndex = await res.json();
-			}else{
-				this.blogIndex = [];
-			}
-		}catch(e){
-			this.blogIndex = [];
-		}finally{
-			this.blogLoading = false;
-		}
-	  },
-	  async openPost(slug){
-		this.postDialog = true;
-		this.postLoading = true;
-		this.currentPost = null;
-		try{
-			const res = await fetch(`blog/${slug}.json`, { cache: 'no-cache' });
-			if(res.ok){
-				this.currentPost = await res.json();
-			}
-		}finally{
-			this.postLoading = false;
-		}
-	  },
-	  formatPostSubtitle(post){
-		const date = this.formatDate(post.date);
-		const tags = post.tags && post.tags.length ? ` · ${post.tags.join(', ')}` : '';
-		return `${date}${tags} · ${post.summary || ''}`;
-	  },
-	  formatDate(iso){
-		try{ return new Date(iso).toLocaleString(); }catch{ return iso; }
-	  },
+      navigateToBlog(url) {
+        window.location.href = url;
+      },
       performSearch() {
 		const query = this.searchQuery.trim();
 		if (!query) return;
