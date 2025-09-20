@@ -34,9 +34,19 @@ async function ensureDir(dir) {
 async function readMarkdownFiles(dir) {
 	try {
 		const entries = await fs.readdir(dir, { withFileTypes: true });
-		const files = entries
-			.filter((e) => e.isFile() && e.name.toLowerCase().endsWith('.md'))
-			.map((e) => path.join(dir, e.name));
+		const files = [];
+		
+		for (const entry of entries) {
+			const fullPath = path.join(dir, entry.name);
+			if (entry.isDirectory()) {
+				// 递归读取子目录
+				const subFiles = await readMarkdownFiles(fullPath);
+				files.push(...subFiles);
+			} else if (entry.isFile() && entry.name.toLowerCase().endsWith('.md')) {
+				files.push(fullPath);
+			}
+		}
+		
 		return files;
 	} catch (e) {
 		if (e.code === 'ENOENT') return [];
@@ -60,7 +70,20 @@ async function build() {
 		const title = attributes.title || slug;
 		const dateIso = attributes.date || stat.mtime.toISOString();
 		const tags = Array.isArray(attributes.tags) ? attributes.tags : (attributes.tags ? String(attributes.tags).split(',').map(s=>s.trim()).filter(Boolean) : []);
-		const category = attributes.category || 'others';
+		
+		// 从文件路径中提取分类
+		const relativePath = path.relative(postsDir, file);
+		const pathParts = relativePath.split(path.sep);
+		let category = 'others';
+		
+		// 如果文件在子目录中，使用子目录名作为分类
+		if (pathParts.length > 1) {
+			category = pathParts[0];
+		} else {
+			// 如果文件在根目录，优先使用 Front Matter 中的分类，否则默认为 others
+			category = attributes.category || 'others';
+		}
+		
 		const summary = attributes.summary || text.slice(0, 160);
 
 		const postData = {

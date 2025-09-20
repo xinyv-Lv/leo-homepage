@@ -1,0 +1,9 @@
+{
+  "slug": "0_course_intro",
+  "title": "0_course_intro",
+  "date": "2025-09-16T05:36:10.998Z",
+  "tags": [],
+  "category": "llm",
+  "summary": "Course Intro 课程主页， slide 浦语参大模型实战营的内容和算力平台 生成式人工智慧导论 - 课程介绍 课程概述 目的：深入了解生成式AI的原理和未来发展 定位：面向已使用过生成式AI，想更深入理解的人 特点：不仅教授如何使用，更注重解释背后的概念和原理 主要内容 生成式AI应用（如CHEGBT）的使用",
+  "html": "<h1>Course Intro</h1>\n<p><a href=\"https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php\">课程主页</a>， <a href=\"https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring-course-data/0223/0223_course.pdf\">slide</a></p>\n<p><a href=\"https://openxlab.org.cn/models/InternLM/subject\">浦语参大模型实战营的内容</a>和<a href=\"https://studio.intern-ai.org.cn/\">算力平台</a></p>\n<h1>生成式人工智慧导论 - 课程介绍</h1>\n<h2>课程概述</h2>\n<ul>\n<li>目的：深入了解生成式AI的原理和未来发展</li>\n<li>定位：面向已使用过生成式AI，想更深入理解的人</li>\n<li>特点：不仅教授如何使用，更注重解释背后的概念和原理</li>\n</ul>\n<h2>主要内容</h2>\n<ol>\n<li>生成式AI应用（如CHEGBT）的使用和潜力</li>\n<li>生成式AI的趋势和技术发展</li>\n<li>生成式AI与传统机器学习的区别</li>\n<li>模型参数数量的影响和历史发展</li>\n</ol>\n<h2>课程结构和作业</h2>\n<ul>\n<li>理论讲解：最新研究论文和概念</li>\n<li>实践体验：逐步增加难度的作业</li>\n<li>创新应用：鼓励使用生成式AI完成作业</li>\n</ul>\n<p>我们将会使用<a href=\"https://openxlab.org.cn/models/InternLM/subject\">浦语参大模型实战营的内容</a>和<a href=\"https://studio.intern-ai.org.cn/\">算力平台</a>作为实践基础，帮助学员更好地理解理论知识。</p>\n<h2>学习建议</h2>\n<ul>\n<li>保持开放心态，体验AI的能力和局限</li>\n<li>准备投入时间和耐心，特别是在模型训练方面</li>\n<li>积极尝试使用生成式AI工具来增强学习效果</li>\n</ul>\n<h2>期望成果</h2>\n<ul>\n<li>深入理解生成式AI的工作原理</li>\n<li>能够判断何时应自主开发模型，何时使用现有工具</li>\n<li>为未来AI领域的挑战做好准备</li>\n</ul>\n"
+}

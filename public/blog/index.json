@@ -1,9 +1,114 @@
 [
   {
+    "slug": "example-tech",
+    "title": "Vue 3 组合式 API 入门指南",
+    "date": "2025-09-18T00:00:00.000Z",
+    "tags": [
+      "Vue",
+      "JavaScript",
+      "前端开发"
+    ],
+    "category": "study",
+    "summary": "详细介绍 Vue 3 组合式 API 的使用方法和最佳实践，帮助开发者更好地理解现代 Vue 开发模式。"
+  },
+  {
+    "slug": "example-life",
+    "title": "关于时间管理的思考",
+    "date": "2025-09-17T00:00:00.000Z",
+    "tags": [
+      "时间管理",
+      "效率",
+      "生活感悟"
+    ],
+    "category": "others",
+    "summary": "分享一些关于时间管理的心得体会，如何在忙碌的生活中找到平衡。"
+  },
+  {
     "slug": "-",
     "title": "-",
     "date": "2025-09-16T07:26:47.365Z",
     "tags": [],
+    "category": "others",
     "summary": "自然语言处理 Lec01 nlp：计算机处理语言文本 难点：语言具有很多歧义性！ nlp研究内容： “4个层次” 编码层 —— “怎么把语言变成输入计算机的符号” 离散向量 连续向量 …… 语言学层 知识与信息层 系统与应用 eg. 文档检索： 每次检索时根据关键词，在整个网页数据库中查询 ——》太慢！ “倒排：” 提"
+  },
+  {
+    "slug": "4_evaluation_and_ethics",
+    "title": "4_evaluation_and_ethics",
+    "date": "2025-09-16T05:36:20.508Z",
+    "tags": [],
+    "category": "llm",
+    "summary": "Evaluation And Ethics 前面部分讲述了大语言模型的能力评估，后面讲述了一些安全性的议题。 大语言模型能力评估 老李这周讲的是模型能力评估，真是干货满满啊！我总结梳理如下： 1. 多种评估方法 对于同一个问题，让模型的输出和标准答案比较。 Chat Arena 使用人类反馈信息评估模型表现 https"
+  },
+  {
+    "slug": "1_intro_to_genAI",
+    "title": "1_intro_to_genAI",
+    "date": "2025-09-16T05:36:14.992Z",
+    "tags": [],
+    "category": "llm",
+    "summary": "1 Intro To GenAI 80分钟快速了解大语言模型 slide video 什麼是生成式人工智慧？假设你是李宏毅教授，要用一堂课的时间来讲它，你会讲述哪些关键知识点？以一个什么样的逻辑来讲？ 什么是生成式人工智能（GenAI）？ 1. 人工智能的范畴 人工智能（AI）是模拟人类智能的机器。在AI的大范畴下，存"
+  },
+  {
+    "slug": "0_course_intro",
+    "title": "0_course_intro",
+    "date": "2025-09-16T05:36:10.998Z",
+    "tags": [],
+    "category": "llm",
+    "summary": "Course Intro 课程主页， slide 浦语参大模型实战营的内容和算力平台 生成式人工智慧导论 - 课程介绍 课程概述 目的：深入了解生成式AI的原理和未来发展 定位：面向已使用过生成式AI，想更深入理解的人 特点：不仅教授如何使用，更注重解释背后的概念和原理 主要内容 生成式AI应用（如CHEGBT）的使用"
+  },
+  {
+    "slug": "3_LLM_training",
+    "title": "3_LLM_training",
+    "date": "2025-09-16T05:35:46.397Z",
+    "tags": [],
+    "category": "llm",
+    "summary": "LLM Training：从文字接龙到通用AI 训练大语言模型就是玩高级文字接龙 李宏毅老师把整个训练过程比喻成文字接龙，这个比喻简直绝了！看看这个基本框架： 整个过程分三个阶段：pretrain, SFT, RLHF。每一步都是在为下一步打基础，就像堆积木一样，一层比一层高级。 本周课程的精彩之处 老李这次又是干货满"
+  },
+  {
+    "slug": "9_VAE",
+    "title": "9_VAE",
+    "date": "2025-07-07T09:53:16.765Z",
+    "tags": [],
+    "category": "cv",
+    "summary": "9_VAE"
+  },
+  {
+    "slug": "8_-speculative-decoding",
+    "title": "8_-speculative-decoding",
+    "date": "2025-07-06T06:23:08.912Z",
+    "tags": [],
+    "category": "cv",
+    "summary": "8_加快生成速度 speculative decoding"
+  },
+  {
+    "slug": "7_-",
+    "title": "7_-",
+    "date": "2025-07-06T06:21:20.468Z",
+    "tags": [],
+    "category": "cv",
+    "summary": "7_图像生成 为什么语言模型用文字接龙，图像生成不用像素接龙呢？ 假如要生成 512*512 的图片，则像素接龙的总次数约为 百万次，相当于写一部《红楼梦》！ ——》使用自回归模型逐像素生成太慢了，不可接受！ 解决方式： 1、 Non-autoregressive model 一次生成所有位置的元素。 问题： 可能不同"
+  },
+  {
+    "slug": "6_genAI",
+    "title": "6_genAI",
+    "date": "2025-07-06T06:04:47.893Z",
+    "tags": [],
+    "category": "llm",
+    "summary": "GenAI 生成式人工智能（Generative AI）是一种能够产生复杂有结构的物件的机器系统。这里的复杂性指的是内容繁多到无法穷举，而结构性则 体现在这些物件是由有限的基本单位构成的。 这种AI系统能够创造多种类型的内容，包括文字、影像和声音等，展现了机器在创造性任务中的多样化能力。 文本 由Token构成 关键问"
+  },
+  {
+    "slug": "2_prompt_engineering",
+    "title": "2_prompt_engineering",
+    "date": "2025-07-03T08:21:40.114Z",
+    "tags": [],
+    "category": "llm",
+    "summary": "Prompt Engineering ChatGPT 能为你做什么？ 请列出你能做的事情，至少三十项目，并且制作成文字云？ 关于人工智能迅速发展的背景下人类技能需求的转变，李教授提出了两种适应人工智能发展的主要思路： 改变自己来强化模型 ：这种方法是通过学习和适应AI工具（如ChatGPT）的使用，来增强自己的能力。这"
+  },
+  {
+    "slug": "5_explainability",
+    "title": "5_explainability",
+    "date": "2024-08-09T18:23:10.000Z",
+    "tags": [],
+    "category": "llm",
+    "summary": "Explainability 老李这次讲的是大语言模型的可解释性，内容挺有意思的。虽然不是重点，但还是记录一下。 大语言模型在想什么？ 老李用动画《葬送的芙莉莲》开场，引出了一个有趣的问题： 动画中，一个魔族为了防止被人类杀死，不停地喊&quot;妈妈&quot;。 这让老李思考：大语言模型会不会也使用类似的策略来自保"
   }
 ]

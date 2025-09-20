@@ -3,6 +3,7 @@
   "title": "-",
   "date": "2025-09-16T07:26:47.365Z",
   "tags": [],
+  "category": "others",
   "summary": "自然语言处理 Lec01 nlp：计算机处理语言文本 难点：语言具有很多歧义性！ nlp研究内容： “4个层次” 编码层 —— “怎么把语言变成输入计算机的符号” 离散向量 连续向量 …… 语言学层 知识与信息层 系统与应用 eg. 文档检索： 每次检索时根据关键词，在整个网页数据库中查询 ——》太慢！ “倒排：” 提",
   "html": "<h1>自然语言处理</h1>\n<h2>Lec01</h2>\n<p>nlp：计算机处理语言文本</p>\n<p><mark><strong>难点：语言具有很多歧义性！</strong></mark></p>\n<p>nlp研究内容： “4个层次”</p>\n<ul>\n<li><p>编码层 —— “怎么把语言变成输入计算机的符号”</p>\n<ul>\n<li><p>离散向量</p>\n</li>\n<li><p>连续向量</p>\n</li>\n<li><p>……</p>\n</li>\n</ul>\n</li>\n<li><p>语言学层 </p>\n</li>\n<li><p>知识与信息层 </p>\n</li>\n<li><p>系统与应用</p>\n</li>\n</ul>\n<br>\n\n<p>eg. 文档检索：</p>\n<p>每次检索时根据关键词，在整个网页数据库中查询</p>\n<p>——》太慢！</p>\n<p><strong>“倒排：”</strong> 提前遍历所有文档，存储关键词数据库，每次查询时只要查该关键词即可</p>\n<p>——》如何确定某文档的关键词？</p>\n<p><strong>“词频：”</strong> 有问题！会计入“the”、“a”等通用高频词</p>\n<p><strong>“逆向文件频率：”</strong> 可以筛出通用高频词</p>\n<br>\n\n<p>技术发展趋势：</p>\n<p><strong>监督学习——&gt;pretrain+finetune——&gt;pretrain+prompt(把finetune的数据对直接放到prompt中，作为提示让模型直接做 in-context learning)——&gt;pretrain+instruct</strong></p>\n"
 }

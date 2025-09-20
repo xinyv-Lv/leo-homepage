@@ -1,0 +1,13 @@
+{
+  "slug": "example-tech",
+  "title": "Vue 3 组合式 API 入门指南",
+  "date": "2025-09-18T00:00:00.000Z",
+  "tags": [
+    "Vue",
+    "JavaScript",
+    "前端开发"
+  ],
+  "category": "study",
+  "summary": "详细介绍 Vue 3 组合式 API 的使用方法和最佳实践，帮助开发者更好地理解现代 Vue 开发模式。",
+  "html": "<h1>Vue 3 组合式 API 入门指南</h1>\n<p>Vue 3 引入了组合式 API（Composition API），这是 Vue 2 选项式 API 的替代方案。组合式 API 提供了更好的类型推导、代码组织和逻辑复用能力。</p>\n<h2>什么是组合式 API？</h2>\n<p>组合式 API 是一套新的 API，允许我们使用函数而不是声明选项的方式编写 Vue 组件。它让我们能够更好地组织组件逻辑，特别是在处理复杂组件时。</p>\n<h2>基本用法</h2>\n<h3>setup 函数</h3>\n<pre><code class=\"language-javascript\">import { ref, reactive, computed } from &#39;vue&#39;\n\nexport default {\n  setup() {\n    // 响应式数据\n    const count = ref(0)\n    const state = reactive({\n      name: &#39;Vue 3&#39;,\n      version: &#39;3.0&#39;\n    })\n    \n    // 计算属性\n    const doubleCount = computed(() =&gt; count.value * 2)\n    \n    // 方法\n    const increment = () =&gt; {\n      count.value++\n    }\n    \n    return {\n      count,\n      state,\n      doubleCount,\n      increment\n    }\n  }\n}\n</code></pre>\n<h3>在模板中使用</h3>\n<pre><code class=\"language-vue\">&lt;template&gt;\n  &lt;div&gt;\n    &lt;p&gt;Count: {{ count }}&lt;/p&gt;\n    &lt;p&gt;Double: {{ doubleCount }}&lt;/p&gt;\n    &lt;button @click=&quot;increment&quot;&gt;Increment&lt;/button&gt;\n  &lt;/div&gt;\n&lt;/template&gt;\n</code></pre>\n<h2>优势</h2>\n<ol>\n<li><strong>更好的类型推导</strong>：TypeScript 支持更好</li>\n<li><strong>逻辑复用</strong>：可以轻松提取和复用逻辑</li>\n<li><strong>代码组织</strong>：相关逻辑可以组织在一起</li>\n<li><strong>性能优化</strong>：更好的 tree-shaking 支持</li>\n</ol>\n<h2>总结</h2>\n<p>组合式 API 是 Vue 3 的重要特性，虽然学习曲线可能比选项式 API 陡峭，但它提供了更强大和灵活的开发体验。建议在新项目中优先使用组合式 API。</p>\n"
+}
